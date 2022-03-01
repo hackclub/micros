@@ -43,7 +43,7 @@ With just a few of them you can make amazing patterns like this:
 
 [finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
 
-[dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=70b6617af6a763021b302a1a161c38c7)
+[dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=47a5cd44484bc8bc7189e0bf3013bcbd)
 
 [straight road](https://hackclub.github.io/live-editor-templates/?id=55b0b04df125d8751ac85f13a130b314)
 
@@ -56,6 +56,7 @@ With just a few of them you can make amazing patterns like this:
 [highway to hell](https://hackclub.github.io/live-editor-templates/?id=da717d8f4fc29bbb7fce4884cf002868)
 
 See if you can make this pattern:
+
 ![squiral](https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png)
 
 
