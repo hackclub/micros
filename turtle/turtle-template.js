@@ -163,7 +163,7 @@ class Turtle {
       this.forward(distanceStep);
     }
 
-    this.setAngle(ogAngle + theta);
+    this.setAngle(ogAngle + angle);
 
     return this;
   }
