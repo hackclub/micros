@@ -14,6 +14,13 @@ document.body.innerHTML = `
       overflow: scroll;
     }
 
+    .options {
+      display: flex;
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+    }
+
     canvas {
       background: white;
     }
@@ -21,6 +28,10 @@ document.body.innerHTML = `
 
   <main>
     <canvas></canvas>
+    <div class="options">
+      <span>draw turtles:</span>
+      <input type="checkbox" checked="true" class="draw-turtles"></input>
+    </div>
   </main>
 `
 
@@ -201,6 +212,11 @@ class Turtle {
   
 }
 
+// STATE
+let turtles = [];
+let drawTurtles = true;
+
+
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 ctx.translate(0.5, 0.5);
@@ -210,10 +226,11 @@ function setCanvasSize(width, height) {
   canvas.height = height;
 }
 
+
 function createTurtle(x, y) {
   const t = new Turtle(canvas);
   t.up().goto(x, y).down();
-
+  turtles.push(t);
   return t;
 }
 
@@ -222,11 +239,48 @@ function fillScreen(color) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function drawTurtle(t) {
+  const startX = t.location.x;
+  const startY = t.location.y;
+
+  ctx.save();
+  ctx.translate(startX, startY);
+  ctx.rotate((t.angle-90)*Math.PI/180);
+  ctx.translate(-startX, -startY)
+
+  ctx.beginPath()
+  ctx.moveTo(startX, startY);
+  ctx.lineTo(startX - 5, startY - 10)
+  ctx.lineTo(startX + 5, startY - 10)
+  ctx.lineTo(startX, startY)
+  ctx.stroke()
+  ctx.closePath()
+
+  ctx.fillStyle = "green";
+  ctx.fill();
+
+  ctx.restore();
+}
+
+document
+  .querySelector(".draw-turtles")
+  .addEventListener("input", () => {
+    drawTurtles = !drawTurtles;
+  })
+
+
 // whole template is run on initialization
 // when code is sent this function is run
 export default function(program) {
   const func = new Function("setCanvasSize", "fillScreen", "createTurtle", program);
+  fillScreen("white");
+  turtles = [];
+
   func(setCanvasSize, fillScreen, createTurtle);
+
+  if (drawTurtles) {
+    turtles.forEach(drawTurtle);
+  }
 }
 
 
