@@ -41,9 +41,23 @@ With just a few of them you can make amazing patterns like this:
 
 ## Challenges
 
-See if you can make this pattern:
+[finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
 
+[dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=70b6617af6a763021b302a1a161c38c7)
+
+[straight road](https://hackclub.github.io/live-editor-templates/?id=55b0b04df125d8751ac85f13a130b314)
+
+[donut road](https://hackclub.github.io/live-editor-templates/?id=e07a8df59fc1630cc097fd34458e8f97)
+
+[crease your dunes](https://hackclub.github.io/live-editor-templates/?id=e9bb1207e4081117c0f02972c1ad63da)
+
+[widen the ribbon](https://hackclub.github.io/live-editor-templates/?id=c707792df1b485c7d91bc42e67f9f3b9)
+
+[highway to hell](https://hackclub.github.io/live-editor-templates/?id=da717d8f4fc29bbb7fce4884cf002868)
+
+See if you can make this pattern:
 ![squiral](https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png)
+
 
 
 ## Useful Snippets
