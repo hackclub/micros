@@ -100,4 +100,10 @@ Change color:
 t.setColor(`hsla(${66}, ${104}%, ${70}%, ${84}%)`);
 ```
 
+Oscillations:
+
+```
+Math.sin(t/frequency)*amplitude+baseline
+```
+
 
