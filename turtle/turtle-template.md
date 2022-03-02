@@ -37,7 +37,7 @@ That's every command you need to learn.
 
 With just a few of them you can make amazing patterns like this:
 
-![pattern](https://cloud-kqt6eg66r-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.20.46_am.png)
+<img width="300" src="https://cloud-kqt6eg66r-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.20.46_am.png" alt="pattern"></img>
 
 ## Challenges
 
@@ -45,8 +45,7 @@ See if you can make these patterns:
 
 **Squiral:**
 
-![squiral](https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png)
-
+<img width="300" src="https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png" alt="squiral"></img>
 
 **Dashed Line:**
 
