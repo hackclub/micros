@@ -74,34 +74,7 @@ See if you can make these patterns:
 Change color:
 
 ```js
-setCanvasSize(300, 300);
-fillScreen("white");
-
-const t = createTurtle(0, 150);
-
-t.setSize(30);
 t.setColor(`hsla(${66}, ${104}%, ${70}%, ${84}%)`);
 ```
 
-Making a rectangle:
-```js
-const w = 430;
-const h = 297;
-
-setCanvasSize(w, h);
-fillScreen("white");
-
-const t = createTurtle(w/2, h/2);
-
-t
-  .setSize(0)
-  .startFill()
-  .forward(143)
-  .right(90)
-  .forward(75)
-  .right(90)
-  .forward(143)
-  .setColor(`hsla(${92}, ${100}%, ${56}%, ${120}%)`)
-  .endFill()
-```
 
