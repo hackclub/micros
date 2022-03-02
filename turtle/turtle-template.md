@@ -1,8 +1,12 @@
 # Turtle Art in JavaScript
 
-Let's make some art with the turtle.
+Let's make some art with the turtle. The turtle is a little creature that carries around a pen which it can lift `up()` or put `down()`. 
 
-We have only a few functions we need to learn.
+You can tell the turtle to move `forward(distance)` and to turn `right(angle)` or `left(angle)`. 
+
+You can also change the `setColor("color")` and the `setSize(number)`.
+
+We have only a few functions we need to learn and they are all listed below.
 
 ```
 const width = 300;
