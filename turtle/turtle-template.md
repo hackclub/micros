@@ -61,6 +61,11 @@ See if you can make these patterns:
 
 [![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)](https://hackclub.github.io/live-editor-templates/?id=18fbbb838c2bf1c76d9a41c8b77b60ea)
 
+**Random Dots**
+
+[![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)](https://hackclub.github.io/live-editor-templates/?id=c0a07ffdf3625b1587bb271191fe3c52)
+
+
 **You can also try these challenges:**
 
 [finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
@@ -79,6 +84,12 @@ See if you can make these patterns:
 
 
 ## Useful Snippets
+
+Random number:
+
+```js
+const random = (min, max) => Math.random()*(max-min) + min;
+```
 
 Change color:
 
