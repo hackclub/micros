@@ -41,6 +41,19 @@ With just a few of them you can make amazing patterns like this:
 
 ## Challenges
 
+See if you can make these patterns:
+
+**Squiral:**
+
+![squiral](https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png)
+
+
+**Dashed Line:**
+
+![dashed line](https://user-images.githubusercontent.com/27078897/156391799-8bdccc18-f53f-461a-b9d7-ec117d3a7412.png)
+
+**You can also try these challenges:**
+
 [finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
 
 [dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=47a5cd44484bc8bc7189e0bf3013bcbd)
@@ -54,11 +67,6 @@ With just a few of them you can make amazing patterns like this:
 [widen the ribbon](https://hackclub.github.io/live-editor-templates/?id=c707792df1b485c7d91bc42e67f9f3b9)
 
 [highway to hell](https://hackclub.github.io/live-editor-templates/?id=da717d8f4fc29bbb7fce4884cf002868)
-
-See if you can make this pattern:
-
-![squiral](https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png)
-
 
 
 ## Useful Snippets
