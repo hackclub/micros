@@ -52,6 +52,11 @@ See if you can make these patterns:
 
 ![dashed line](https://user-images.githubusercontent.com/27078897/156391799-8bdccc18-f53f-461a-b9d7-ec117d3a7412.png)
 
+
+**Alternating Arcs:**
+
+![alternating arcs](https://user-images.githubusercontent.com/27078897/156395531-d3768b16-e2d5-407d-8903-cc9d39ff4a5c.png)
+
 **You can also try these challenges:**
 
 [finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
