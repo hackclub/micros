@@ -215,6 +215,7 @@ class Turtle {
 // STATE
 let turtles = [];
 let drawTurtles = true;
+let lastProgram = "";
 
 
 const canvas = document.querySelector("canvas");
@@ -244,6 +245,10 @@ function drawTurtle(t) {
   const startY = t.location.y;
 
   ctx.save();
+  ctx.fillStyle = "green";
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 1;
+
   ctx.translate(startX, startY);
   ctx.rotate((t.angle-90)*Math.PI/180);
   ctx.translate(-startX, -startY)
@@ -256,7 +261,7 @@ function drawTurtle(t) {
   ctx.stroke()
   ctx.closePath()
 
-  ctx.fillStyle = "green";
+
   ctx.fill();
 
   ctx.restore();
@@ -266,15 +271,18 @@ document
   .querySelector(".draw-turtles")
   .addEventListener("input", () => {
     drawTurtles = !drawTurtles;
+
+    evaluate(lastProgram);
   })
 
 
 // whole template is run on initialization
 // when code is sent this function is run
-export default function(program) {
+export default function evaluate(program) {
   const func = new Function("setCanvasSize", "fillScreen", "createTurtle", program);
   fillScreen("white");
   turtles = [];
+  lastProgram = program;
 
   func(setCanvasSize, fillScreen, createTurtle);
 
