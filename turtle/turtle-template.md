@@ -65,6 +65,9 @@ See if you can make these patterns:
 
 [![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)](https://hackclub.github.io/live-editor-templates/?id=c0a07ffdf3625b1587bb271191fe3c52)
 
+**Follow the Sines**
+
+[![sine rectangles]((https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png))](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
 
 **You can also try these challenges:**
 
