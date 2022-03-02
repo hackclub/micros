@@ -72,9 +72,13 @@ See if you can make these patterns:
 
 [![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
 
+**Bright**
+
+[![bright](https://user-images.githubusercontent.com/27078897/156447502-3380f3bf-a340-437a-a747-bccff2392521.png)](https://hackclub.github.io/live-editor-templates/?id=913e5b294832806bf35943903726f7cb)
+
 **Errode**
 
-[![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)](http://127.0.0.1:8080/live-editor-templates/?id=2a8cca339043487d98737b6ad212a21f)
+[![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)](https://hackclub.github.io/live-editor-templates/?id=07840d86357c333fb875d21de35d93ca)
 
 **You can also try these challenges:**
 
