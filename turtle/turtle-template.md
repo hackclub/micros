@@ -113,4 +113,8 @@ Oscillations:
 Math.sin(t/frequency)*amplitude+baseline
 ```
 
+## Miscellaneous
+
+[GitHub of this document.](https://github.com/hackclub/microworld-templates/blob/main/turtle/turtle-template.md)
+
 
