@@ -67,7 +67,7 @@ See if you can make these patterns:
 
 **Follow the Sines**
 
-[![sine rectangles]((https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png))](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
+[![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
 
 **You can also try these challenges:**
 
