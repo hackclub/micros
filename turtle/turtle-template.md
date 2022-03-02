@@ -57,6 +57,10 @@ See if you can make these patterns:
 
 ![alternating arcs](https://user-images.githubusercontent.com/27078897/156395531-d3768b16-e2d5-407d-8903-cc9d39ff4a5c.png)
 
+**Shrinking Squares:**
+
+[![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)](https://hackclub.github.io/live-editor-templates/?id=18fbbb838c2bf1c76d9a41c8b77b60ea)
+
 **You can also try these challenges:**
 
 [finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
