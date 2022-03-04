@@ -1,6 +1,6 @@
 {
   "name": "pixeldough",
-  "documentation": "https://hackclub.github.io/microworld-templates/pixeldough/pixeldough-template.md",
-  "template": "https://hackclub.github.io/microworld-templates/pixeldough/pixeldough-template.js",
-  "programAddress": "https://hackclub.github.io/microworld-templates/pixeldough/example-pixeldough-program.js"
+  "documentation": "https://micros.hackclub.dev/pixeldough/pixeldough-template.md",
+  "template": "https://micros.hackclub.dev/pixeldough/pixeldough-template.js",
+  "programAddress": "https://micros.hackclub.dev/microworld-templates/pixeldough/example-pixeldough-program.js"
 }
