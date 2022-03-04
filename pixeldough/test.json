@@ -1,0 +1,6 @@
+{
+  "name": "pixeldough-test",
+  "documentation": "http://localhost:8000/pixeldough-template.md",
+  "template": "http://localhost:8000/pixeldough-template.js",
+  "programAddress": "http://localhost:8000/example-pixeldough-program.js"
+}
