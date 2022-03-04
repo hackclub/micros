@@ -55,47 +55,29 @@ See if you can make these patterns:
 
 ![dashed line](https://user-images.githubusercontent.com/27078897/156391799-8bdccc18-f53f-461a-b9d7-ec117d3a7412.png)
 
-
 **Alternating Arcs:**
 
 ![alternating arcs](https://user-images.githubusercontent.com/27078897/156395531-d3768b16-e2d5-407d-8903-cc9d39ff4a5c.png)
 
 **Shrinking Squares:**
 
-[![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)](https://hackclub.github.io/live-editor-templates/?id=18fbbb838c2bf1c76d9a41c8b77b60ea)
+![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)
 
 **Random Dots**
 
-[![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)](https://hackclub.github.io/live-editor-templates/?id=c0a07ffdf3625b1587bb271191fe3c52)
+![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)
 
 **Follow the Sines**
 
-[![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
+![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)
 
 **Bright**
 
-[![bright](https://user-images.githubusercontent.com/27078897/156447502-3380f3bf-a340-437a-a747-bccff2392521.png)](https://hackclub.github.io/live-editor-templates/?id=913e5b294832806bf35943903726f7cb)
+![bright](https://user-images.githubusercontent.com/27078897/156447502-3380f3bf-a340-437a-a747-bccff2392521.png)
 
 **Errode**
 
-[![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)](https://hackclub.github.io/live-editor-templates/?id=07840d86357c333fb875d21de35d93ca)
-
-**You can also try these challenges:**
-
-[finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
-
-[dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=47a5cd44484bc8bc7189e0bf3013bcbd)
-
-[straight road](https://hackclub.github.io/live-editor-templates/?id=55b0b04df125d8751ac85f13a130b314)
-
-[donut road](https://hackclub.github.io/live-editor-templates/?id=e07a8df59fc1630cc097fd34458e8f97)
-
-[crease your dunes](https://hackclub.github.io/live-editor-templates/?id=e9bb1207e4081117c0f02972c1ad63da)
-
-[widen the ribbon](https://hackclub.github.io/live-editor-templates/?id=c707792df1b485c7d91bc42e67f9f3b9)
-
-[highway to hell](https://hackclub.github.io/live-editor-templates/?id=da717d8f4fc29bbb7fce4884cf002868)
-
+![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)
 
 ## Useful Snippets
 
@@ -119,6 +101,6 @@ Math.sin(t/frequency)*amplitude+baseline
 
 ## Miscellaneous
 
-[GitHub of this document.](https://github.com/hackclub/microworld-templates/blob/main/turtle/turtle-template.md)
+[GitHub of this document.](https://github.com/hackclub/micros/blob/main/turtle/turtle-template.md)
 
 
