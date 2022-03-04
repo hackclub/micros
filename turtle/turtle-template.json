@@ -1,6 +1,6 @@
 {
   "name": "leo-s-test-file",
-  "documentation": "https://hackclub.github.io/microworld-templates/turtle/turtle-template.md",
-  "template": "https://hackclub.github.io/microworld-templates/turtle/turtle-template.js",
-  "programAddress": "https://hackclub.github.io/microworld-templates/turtle/example-turtle-program.js"
+  "documentation": "https://micros.hackclub.dev/turtle/turtle-template.md",
+  "template": "https://micros.hackclub.dev/turtle/turtle-template.js",
+  "programAddress": "https://micros.hackclub.dev/turtle/example-turtle-program.js"
 }
