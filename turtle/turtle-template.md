@@ -89,8 +89,13 @@ fillScreen("white");
 const t = createTurtle(161, 150);
 
 for (let i = 0; i < 18; i += 1) {
-  let angle = (i % 2 === 0 ? -1 : 1) * 232;
-  t.arc(angle, 11);
+  let angle = 232;
+  if (i % 2 === 0) {
+    t.arc(-angle, 11);
+  } else {
+    t.arc(angle, 11);
+  }
+
   t.right(20);
 }
 ```
