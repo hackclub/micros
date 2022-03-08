@@ -1,6 +1,6 @@
 return {
     size: [300, 300],
-    forEachPixel(x, y, rgba) {
+    forEachPixel(x, y) {
         let dx = x - 0.5,
             dy = y - 0.5,
             dist = Math.sqrt(dx*dx + dy*dy),

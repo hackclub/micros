@@ -78,7 +78,10 @@ export default function evaluate(program) {
   const imgData = imgput.files.length ? getImageData(img) : undefined;
   const { size: [w, h], forEachPixel } = new Function("sample", program)(
     !imgData ? defaultTex : (x, y) => {
-      const i = (Math.round(x * img.width) * img.width + Math.round(y * img.height)) * 4;
+      const { width: w, height: h } = img;
+      const realMod = (x, n) => ((x % n) + n) % n
+
+      const i = (Math.floor(realMod(x * w, w)) * w + Math.floor(realMod(y * h, h))) * 4;
       return [...imgData.data.slice(i, i+4)].map(x => x / 255);
     }
   );
@@ -89,7 +92,7 @@ export default function evaluate(program) {
   let wtr = 0;
 
   for (let x = 0; x < w; x++)
-    for (let y = 0; y < w; y++) {
+    for (let y = 0; y < h; y++) {
       const [r, g, b, a = 255] = forEachPixel(x/w, y/h).map(x => x * 255);
       pixels[wtr++] = r;
       pixels[wtr++] = g;
