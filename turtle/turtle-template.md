@@ -51,33 +51,179 @@ See if you can make these patterns:
 
 <img width="300" src="https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png" alt="squiral"></img>
 
+```js
+setCanvasSize(300, 300);
+fillScreen("white");
+
+const t = createTurtle(150, 150);
+
+t.setSize(2)
+
+for (let i = 0; i < 430; i += 5) {
+  t.forward(i);
+  t.right(90);
+}
+```
+
 **Dashed Line:**
 
 ![dashed line](https://user-images.githubusercontent.com/27078897/156391799-8bdccc18-f53f-461a-b9d7-ec117d3a7412.png)
+
+```js
+setCanvasSize(300, 300);
+fillScreen("white");
+
+const t = createTurtle(0, 150);
+
+t.setSize(2);
+
+for (let i = 0; i < 430; i += 1) {
+  t.up();
+  if (i % 2 === 0) t.down();
+  t.forward(14);
+}
+```
 
 **Alternating Arcs:**
 
 ![alternating arcs](https://user-images.githubusercontent.com/27078897/156395531-d3768b16-e2d5-407d-8903-cc9d39ff4a5c.png)
 
+```js
+setCanvasSize(300, 300);
+fillScreen("white");
+
+const t = createTurtle(161, 150);
+
+for (let i = 0; i < 18; i += 1) {
+  let angle = (i % 2 === 0 ? -1 : 1) * 232;
+  t.arc(angle, 11);
+  t.right(20);
+}
+```
+
 **Shrinking Squares:**
 
 ![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)
+
+```js
+const w = 300;
+const h = 300;
+
+setCanvasSize(w, h);
+fillScreen("white");
+
+const t = createTurtle(w/2, h/2);
+
+t.setSize(0);
+
+function rect(x, y, w, h) {
+  t.up();
+  t.goto(x - w/2, y - h/2);
+  t.down();
+  t.setAngle(0);
+  t.forward(w);
+  t.right(90);
+  t.forward(h);
+  t.right(90);
+  t.forward(w);
+  t.right(90);
+  t.forward(h);
+}
+
+for (let i = 30; i > 1; i -= 3) {
+  t.startFill();
+  t.setColor(`hsla(${360/10*i}, ${100}%, ${71}%, ${100}%)`);
+  rect(w/2, h/2, i*10, i*10);
+  t.endFill();
+}
+
+```
 
 **Random Dots**
 
 ![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)
 
+```js
+const w = 300;
+const h = 300;
+
+setCanvasSize(w, h);
+fillScreen("white");
+
+const t = createTurtle(w/2, h/2);
+
+t.setSize(36);
+t.setColor(`rgba(0, 0, 0, ${68}%)`);
+
+const random = (min, max) => Math.random()*(max-min) + min;
+
+for (let i = 0; i < 12; i += 1) {
+  t.up();
+  t.goto(random(5, 278), random(33, 265));
+  t.down();
+  t.forward(0);
+}
+```
+
 **Follow the Sines**
 
 ![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)
+
+```js
+const w = 300;
+const h = 300;
+
+setCanvasSize(w, h);
+fillScreen("white");
+
+const t = createTurtle(w/2, h/2);
+
+t.setSize(0);
+
+function rect(x, y, w, h) {
+  t.up();
+  t.goto(x - w/2, y - h/2);
+  t.down();
+  t.setAngle(0);
+  t.forward(w);
+  t.right(90);
+  t.forward(h);
+  t.right(90);
+  t.forward(w);
+  t.right(90);
+  t.forward(h);
+}
+
+for (let i = 0; i < 252; i += 1) {
+  t.startFill();
+  t.setColor(`hsla(${360/10*i}, ${100}%, ${73}%, ${63}%)`);
+  rect(i*2 + -73, Math.sin(i/10)*77+157, -57 , 3);
+  t.endFill();
+}
+```
 
 **Bright**
 
 ![bright](https://user-images.githubusercontent.com/27078897/156447502-3380f3bf-a340-437a-a747-bccff2392521.png)
 
-**Errode**
+```js
+const w = 300;
+const h = 300;
 
-![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)
+setCanvasSize(w, h);
+fillScreen("white");
+
+const t = createTurtle(w/2, h/2);
+
+for (let i = 65; i > 1; i--) {
+  t.up();
+  t.goto(w/2, h/2);
+  t.down();
+  t.setSize(i*4);
+  t.setColor(`hsla(${67-i}, ${100}%, ${70}%, ${35}%)`);
+  t.forward(0);
+}
+```
 
 ## Useful Snippets
 
