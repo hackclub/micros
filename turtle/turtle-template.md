@@ -235,7 +235,7 @@ const random = (min, max) => Math.random()*(max-min) + min;
 Change color:
 
 ```js
-turtle.setColor(`hsla(${66}, ${104}%, ${70}%, ${84}%)`);
+t.setColor(`hsla(${66}, ${104}%, ${70}%, ${84}%)`);
 ```
 
 Oscillations:
