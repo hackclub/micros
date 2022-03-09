@@ -1,6 +1,6 @@
 {
   "name": "leo-s-test-file",
-  "documentation": "http://127.0.0.1:8080/microworld-templates/turtle/turtle-template.md",
-  "template": "http://127.0.0.1:8080/microworld-templates/turtle/turtle-template.js",
-  "programAddress": "http://127.0.0.1:8080/microworld-templates/turtle/test.js"
+  "documentation": "http://127.0.0.1:8080/turtle//turtle-template.md",
+  "template": "http://127.0.0.1:8080/turtle//turtle-template.js",
+  "programAddress": "http://127.0.0.1:8080/turtle//test.js"
 }

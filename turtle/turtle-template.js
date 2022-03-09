@@ -16,6 +16,7 @@ document.body.innerHTML = `
 
     .options {
       display: flex;
+      flex-direction: column;
       position: fixed;
       right: 20px;
       bottom: 20px;
@@ -29,8 +30,11 @@ document.body.innerHTML = `
   <main>
     <canvas></canvas>
     <div class="options">
-      <span>draw turtles:</span>
-      <input type="checkbox" checked="true" class="draw-turtles"></input>
+      <div>
+        <span>draw turtles:</span>
+        <input type="checkbox" checked="true" class="draw-turtles"></input>
+      </div>
+      <!-- <button class="download">download image</button> -->
     </div>
   </main>
 `
@@ -267,6 +271,18 @@ function drawTurtle(t) {
   ctx.restore();
 }
 
+function download() {
+  const canvas = document.querySelector("canvas");
+
+  // create temporary link  
+  const link = document.createElement('a');
+  link.download = 'turtleArt.png';
+  link.href = canvas.toDataURL();
+  console.log(link);
+  link.click();
+  link.delete;
+}
+
 document
   .querySelector(".draw-turtles")
   .addEventListener("input", () => {
@@ -275,6 +291,9 @@ document
     evaluate(lastProgram);
   })
 
+// document
+//   .querySelector(".download")
+//   .addEventListener("click", download);
 
 // whole template is run on initialization
 // when code is sent this function is run
