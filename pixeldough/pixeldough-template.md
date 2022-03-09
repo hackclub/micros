@@ -1,121 +1,428 @@
-# Turtle Art in JavaScript
+# Pixeldough
+By running a bit of code on each pixel in an image, you can make a lot of cool art!
 
-Let's make some art with the turtle. The turtle is a little creature that carries around a pen which it can lift `up()` or put `down()`. 
+## just an image
 
-You can tell the turtle to move `forward(distance)` and to turn `right(angle)` or `left(angle)`. 
-
-You can also change the `setColor("color")` and the `setSize(number)`.
-
-We have only a few functions we need to learn and they are all listed below.
+<img width="300" src="https://cloud-i3n4o8a50-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-const width = 300;
-const height = 300;
-
-setCanvasSize(width, height); // set the canvas size
-fillScreen("white"); // set the background
-
-const t = createTurtle(150, 150); // create a drawing turtle with starting x and y
-
-t.forward(30) // go forward and leave a trail
-t.setColor("blue") // change the color
-t.right(45); // turn right 45 degrees
-t.arc(32, 40); // make and arc with angle 32 and radius 40
-t.left(30); // turn left 30 degrees
-t.setSize(3); // set the pen size
-t.goto(50, 200); // go to x 50 and y 200
-t.setAngle(90); // set the angle to 90 degrees
-t.up(); // pick up the pen so you don't draw
-t.forward(40);
-t.down(); // put down the pen so you do draw
-t.forward(30);
-
-t.startFill(); // begin tracking points to fill shape
-t.setColor("red");
-t.arc(130, 50);
-t.endFill(); // fill in shape
-
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(x, y);
+      return [r, g, b, a];
+    }
+}
 ```
 
-That's every command you need to learn.
+## flip!
 
-With just a few of them you can make amazing patterns like this:
+<img width="300" src="https://cloud-dp3v55kn2-hack-club-bot.vercel.app/0image.png"></img>
 
-<img width="300" src="https://cloud-kqt6eg66r-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.20.46_am.png" alt="pattern"></img>
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(y, x);
+      return [r, g, b, a];
+    }
+}
+```
 
-## Challenges
+## darken
 
-See if you can make these patterns:
+<img width="300" src="https://cloud-8jfg4stx4-hack-club-bot.vercel.app/0image.png"></img>
 
-**Squiral:**
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(x, y);
+      return [r - 0.3, g - 0.3, b - 0.3, a];
+    }
+}
+```
 
-<img width="300" src="https://cloud-iv130nu4p-hack-club-bot.vercel.app/0screen_shot_2022-02-24_at_10.23.00_am.png" alt="squiral"></img>
+## invert
 
-**Dashed Line:**
+<img width="300" src="https://cloud-r7hx0ta6p-hack-club-bot.vercel.app/0image.png"></img>
 
-![dashed line](https://user-images.githubusercontent.com/27078897/156391799-8bdccc18-f53f-461a-b9d7-ec117d3a7412.png)
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(x, y);
+      return [1 - r, 1 - g, 1 - b, a];
+    }
+}
+```
+
+## add to color based on position in image
+
+<img width="300" src="https://cloud-mn6pntdgf-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(x, y);
+      return [x+r, y+g, b, a];
+    }
+}
+```
+
+## mix two colors
+
+<img width="300" src="https://cloud-nk2ylrl7u-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+const INDIGO = [0.3, 0.0, 0.6, 1];
+const PEACH  = [1.0, 0.5, 0.4, 1];
+
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      return mix(PEACH, INDIGO, 0.5)
+    }
+}
+```
+
+## mix two colors based on position in image
+
+<img width="300" src="https://cloud-6n5g2cl1k-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+const INDIGO = [0.3, 0.0, 0.6, 1];
+const PEACH  = [1.0, 0.5, 0.4, 1];
+
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      return mix(PEACH, INDIGO, x)
+    }
+}
+```
+
+## mix in an image!
+
+<img width="300" src="https://cloud-19sfbea6p-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+const INDIGO = [0.3, 0.0, 0.6, 1];
+const PEACH  = [1.0, 0.5, 0.4, 1];
+
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      return mix(sample(x, y), INDIGO, x)
+    }
+}
+```
+
+## image grid!
+
+<img width="300" src="https://cloud-kcj294dr2-hack-club-bot.vercel.app/0image.png"></img>
+
+can you change the size of the grid based on position in image?
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const [r, g, b, a] = sample(x * 2, y * 2);
+      return [r, g, b, a];
+    }
+}
+```
+
+## becoming well rounded!
+
+<img width="300" src="https://cloud-p91oye7o3-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const dist = distance([x, y], [0.5, 0.5]);
+      if (dist > 0.5)
+        return [0, 0, 0, 1];
+      else
+        return sample(x, y);
+    }
+}
+```
+
+## mixing based on distance from center
+
+<img width="300" src="https://cloud-ramis7fu2-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+const BLACK = [0, 0, 0, 1];
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const dist = distance([x, y], [0.5, 0.5]);
+      return mix(sample(x, y), BLACK, dist);
+    }
+}
+```
+
+## waves of red!
+
+<img width="300" src="https://cloud-isa96zqtv-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const r = x % (1/4) * 4;
+      return [r, 0, 0, 1];
+    }
+}
+```
+
+## sampling waves!
+
+<img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/0image.png"></img>
+
+can you make the waves go up and down as well?
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const r = x % (1/4) * 4;
+      return mix(sample(x, y), [0, 0, 0, 1], r);
+    }
+}
+```
+
+## laser pulses!
+
+<img width="300" src="https://cloud-isa96zqtv-hack-club-bot.vercel.app/1image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const r = Math.sin(x * Math.PI * 5);
+      return [r, 0, 0, 1];
+    }
+}
+```
+
+## circular pulses!
+
+<img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/2image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const dist = distance([x, y], [0.5, 0.5]);
+      const r = Math.sin(dist * Math.PI * 11);
+      return [r, 0, 0, 1];
+    }
+}
+```
+
+## using a circular pulse to mix an image with a flipped version of itself
+
+<img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/1image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const dist = distance([x, y], [0.5, 0.5]);
+      let r = Math.sin(dist * Math.PI * 11);
+
+      /* mix takes values that go from 0 to 1,
+         but Math.sin returns values from -1 to 1. */
+      r = (r + 1.0) * 0.5;
+
+      return mix(sample(y, x), sample(x, y), r)
+    }
+}
+```
+
+## diamonds (XOR fractal)
+
+<img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/3image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const rx = x * 64;
+      const ry = y * 64;
+      const r = (rx ^ ry) / 64;
+      return [r, 0, 0, 1];
+    }
+}
+```
+
+## using diamonds to mix in an image
+
+<img width="300" src="https://cloud-isa96zqtv-hack-club-bot.vercel.app/2image.png"></img>
+
+```
+const BLACK = [0, 0, 0, 1];
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const rx = x * 64;
+      const ry = y * 64;
+      const r = (rx ^ ry) / 64;
+      return mix(BLACK, sample(x, y), r);
+    }
+}
+```
+
+## mix two colors based on the angle between a pixel and the center
+
+<img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+const INDIGO = [0.3, 0.0, 0.6, 1];
+const PEACH  = [1.0, 0.5, 0.4, 1];
+
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      let r = angleBetween([x, y], [0.5, 0.5]);
+
+      /* the angle will go from 0 to 360,
+         mix wants it to be from 0 to 1 */
+      r = r / 360;
+
+      return mix(INDIGO, PEACH, r);
+    }
+}
+```
+
+## turn angles back into positions on the screen
+
+<img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/1image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      const angle = angleBetween([x, y], [0.5, 0.5]);
+      const [nx, ny] = angleToPos(angle);
+      return sample(nx, ny);
+    }
+}
+```
+
+## change the angles before you turn them back into positions!
+
+<img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/3image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      let angle = angleBetween([x, y], [0.5, 0.5]);
+
+      /* x is between 0 and 1,
+         so we'll rotate the furthermost pixels 100 degrees */
+      angle += 100 * x;
+      
+      const [nx, ny] = angleToPos(angle);
+      return sample(nx, ny);
+    }
+}
+```
+
+## change the angle based on its distance from the center!
+
+<img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/2image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      let angle = angleBetween([x, y], [0.5, 0.5]);
+
+      const dist = distance([x, y], [0.5, 0.5]);
+      angle += 100 * dist;
+
+      const [nx, ny] = angleToPos(angle);
+      return sample(nx, ny);
+    }
+}
+```
+
+## look for a pixel the same distance from the center as this one, just with a different angle
+
+<img width="300" src="https://cloud-qs97l0wq2-hack-club-bot.vercel.app/0image.png"></img>
+
+```
+return {
+    size: [300, 300],
+    forEachPixel(x, y) {
+      let angle = angleBetween([x, y], [0.5, 0.5]);
+
+      const dist = distance([x, y], [0.5, 0.5]);
+      angle += 100 * dist;
+
+      /* angles are only a direction to look in;
+         angleToPos assumes you want a pixel 1 unit away.
+         (1 unit is the size of the entire image)
+      
+         let's have it look however far away this pixel is instead */
+      const [nx, ny] = angleToPos(angle);
+      return sample(nx * dist, ny * dist);
+    }
+}
+```
 
 
-**Alternating Arcs:**
 
-![alternating arcs](https://user-images.githubusercontent.com/27078897/156395531-d3768b16-e2d5-407d-8903-cc9d39ff4a5c.png)
 
-**Shrinking Squares:**
+### MAP
+[swap](https://microworlds.hackclub.dev/?id=8d404b5339e1e61b9dd2817e2041132d)
 
-[![squares](https://user-images.githubusercontent.com/27078897/156402582-91c40880-4c6f-46c5-b313-b49d133e97ff.png)](https://hackclub.github.io/live-editor-templates/?id=18fbbb838c2bf1c76d9a41c8b77b60ea)
+[darken](https://microworlds.hackclub.dev/?id=770e1f671e151d436520931e1b5981e9)
 
-**Random Dots**
+[invert](https://microworlds.hackclub.dev/?id=91ad1de521fef072aa474744bb099499)
 
-[![random dots](https://user-images.githubusercontent.com/27078897/156422518-09727e3a-f0c7-4d89-ba05-ce3cd23d1943.png)](https://hackclub.github.io/live-editor-templates/?id=c0a07ffdf3625b1587bb271191fe3c52)
+### DOMAIN
+[scale](https://microworlds.hackclub.dev/?id=c449fca15de37f5e1386acb39167b4e7)
 
-**Follow the Sines**
+[xy scale](https://microworlds.hackclub.dev/?id=fea10d868398eac135c264f61efacf31)
 
-[![sine rectangles](https://user-images.githubusercontent.com/27078897/156425746-5f2e02d8-ae91-46f7-ab3a-6af25f46909e.png)](https://hackclub.github.io/live-editor-templates/?id=0b041617e58dba32fbe836bff7f16d8e)
+[lerp](https://microworlds.hackclub.dev/?id=07a983cc0f541d416cacc6f5bbc72c9e)
 
-**Bright**
+[xy lerp](https://microworlds.hackclub.dev/?id=4550c2d7dedb6b9a667f022693453f4f)
 
-[![bright](https://user-images.githubusercontent.com/27078897/156447502-3380f3bf-a340-437a-a747-bccff2392521.png)](https://hackclub.github.io/live-editor-templates/?id=913e5b294832806bf35943903726f7cb)
+[radial gradient](https://microworlds.hackclub.dev/?id=865577efb766cf824f99e39fe0085ae8)
 
-**Errode**
+### SAMPLE
+[radial sample](https://microworlds.hackclub.dev/?id=c697e2cc10b1aba51328dd148582ceed)
+flip
 
-[![errode](https://user-images.githubusercontent.com/27078897/156428926-71e77279-039f-4162-bb71-81f4cca72fb8.png)](https://hackclub.github.io/live-editor-templates/?id=07840d86357c333fb875d21de35d93ca)
+swirl
 
-**You can also try these challenges:**
+fracture
 
-[finish the dashing](https://hackclub.github.io/live-editor-templates/?id=740787ac323e19dddad0546b635d0452)
+### SDF
+radial
 
-[dash my lollipop](https://hackclub.github.io/live-editor-templates/?id=47a5cd44484bc8bc7189e0bf3013bcbd)
+circle
 
-[straight road](https://hackclub.github.io/live-editor-templates/?id=55b0b04df125d8751ac85f13a130b314)
+onion
 
-[donut road](https://hackclub.github.io/live-editor-templates/?id=e07a8df59fc1630cc097fd34458e8f97)
+### NOISE
+grid
 
-[crease your dunes](https://hackclub.github.io/live-editor-templates/?id=e9bb1207e4081117c0f02972c1ad63da)
+hex
 
-[widen the ribbon](https://hackclub.github.io/live-editor-templates/?id=c707792df1b485c7d91bc42e67f9f3b9)
-
-[highway to hell](https://hackclub.github.io/live-editor-templates/?id=da717d8f4fc29bbb7fce4884cf002868)
-
+simplex
 
 ## Useful Snippets
-
-Random number:
-
-```js
-const random = (min, max) => Math.random()*(max-min) + min;
-```
-
-Change color:
-
-```js
-turtle.setColor(`hsla(${66}, ${104}%, ${70}%, ${84}%)`);
-```
-
-Oscillations:
-
-```
-Math.sin(t/frequency)*amplitude+baseline
-```
 
 ## Miscellaneous
 
