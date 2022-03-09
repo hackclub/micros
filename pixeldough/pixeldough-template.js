@@ -45,12 +45,14 @@ let lastProgram = null;
 
 const imgput = document.getElementById("img");
 let img = new Image();
+const setImgSrc = src => {
+  img.onload = () => evaluate(lastProgram);
+  img.src = src;
+}
+setImgSrc("default.png");
 imgput.oninput = () => {
   const fr = new FileReader();
-  fr.onloadend = () => {
-    img.onload = () => evaluate(lastProgram);
-    img.src = fr.result;
-  }
+  fr.onloadend = () => setImgSrc(fr.result);
   fr.readAsDataURL(imgput.files[0]);
 }
 
@@ -94,7 +96,7 @@ export default function evaluate(program) {
   if (program === null) return;
   lastProgram = program;
 
-  const imgData = imgput.files.length ? getImageData(img) : undefined;
+  const imgData = getImageData(img);
   const sample = !imgData ? defaultTex : (x, y) => {
     const { width: w, height: h } = img;
     const realMod = (x, n) => ((x % n) + n) % n
