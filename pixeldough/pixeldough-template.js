@@ -65,9 +65,28 @@ const getImageData = img => {
 
 /* returns a magenta and black checkerboard */
 const defaultTex = (x, y) => {
+  x = Math.abs(x), y = Math.abs(y);
   let m = (Math.round(x * 5) % 2) ^ (Math.round(y * 5) % 2);
   return [m, 0, m, 1];
 };
+
+const mix = (a, b, t) => Array.from(
+  { length: 4 },
+  (_, i) => Math.max(0, Math.min(1, a[i] + (b[i] - a[i]) * t)),
+)
+
+const distance = (a, b) => {
+  const dx = a[0] - b[0],
+        dy = a[1] - b[1];
+  return Math.sqrt(dx*dx + dy*dy);
+}
+
+const angleBetween = (a, b) => {
+  return Math.atan2(a[1] - b[1], a[0] - b[0]) * (180/Math.PI) + 180;
+}
+
+const angleToPos = angle => [Math.cos(angle * (Math.PI/180)),
+                             Math.sin(angle * (Math.PI/180))];
 
 // whole template is run on initialization
 // when code is sent this function is run
@@ -76,15 +95,16 @@ export default function evaluate(program) {
   lastProgram = program;
 
   const imgData = imgput.files.length ? getImageData(img) : undefined;
-  const { size: [w, h], forEachPixel } = new Function("sample", program)(
-    !imgData ? defaultTex : (x, y) => {
-      const { width: w, height: h } = img;
-      const realMod = (x, n) => ((x % n) + n) % n
+  const sample = !imgData ? defaultTex : (x, y) => {
+    const { width: w, height: h } = img;
+    const realMod = (x, n) => ((x % n) + n) % n
 
-      const i = (Math.floor(realMod(x * w, w)) * w + Math.floor(realMod(y * h, h))) * 4;
-      return [...imgData.data.slice(i, i+4)].map(x => x / 255);
-    }
-  );
+    const i = (Math.floor(realMod(y * h, h)) * w + Math.floor(realMod(x * w, w))) * 4;
+    return [...imgData.data.slice(i, i+4)].map(x => x / 255);
+  }
+
+  const helpers = { mix, distance, sample, angleBetween, angleToPos };
+  const { size: [w, h], forEachPixel } = new Function(...Object.keys(helpers), program)(...Object.values(helpers));
 
   canvas.width = w, canvas.height = h;
 
@@ -93,7 +113,7 @@ export default function evaluate(program) {
 
   for (let x = 0; x < w; x++)
     for (let y = 0; y < h; y++) {
-      const [r, g, b, a = 255] = forEachPixel(x/w, y/h).map(x => x * 255);
+      const [r, g, b, a = 255] = forEachPixel(y/w, x/h).map(x => x * 255);
       pixels[wtr++] = r;
       pixels[wtr++] = g;
       pixels[wtr++] = b;
