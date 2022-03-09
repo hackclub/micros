@@ -96,7 +96,7 @@ export default function evaluate(program) {
   if (program === null) return;
   lastProgram = program;
 
-  const imgData = getImageData(img);
+  const imgData = imgput.files.length ? getImageData(img) : undefined;
   const sample = !imgData ? defaultTex : (x, y) => {
     const { width: w, height: h } = img;
     const realMod = (x, n) => ((x % n) + n) % n
