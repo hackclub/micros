@@ -17,23 +17,41 @@ fillScreen("white"); // set the background
 
 const t = createTurtle(150, 150); // create a drawing turtle with starting x and y
 
-t.forward(30) // go forward and leave a trail
-t.setColor("blue") // change the color
-t.right(45); // turn right 45 degrees
-t.arc(32, 40); // make and arc with angle 32 and radius 40
-t.left(30); // turn left 30 degrees
-t.setSize(3); // set the pen size
-t.goto(50, 200); // go to x 50 and y 200
-t.setAngle(90); // set the angle to 90 degrees
-t.up(); // pick up the pen so you don't draw
-t.forward(40);
-t.down(); // put down the pen so you do draw
+// go forward and leave a trail
 t.forward(30);
 
-t.startFill(); // begin tracking points to fill shape
-t.setColor("red");
-t.arc(130, 50);
-t.endFill(); // fill in shape
+// change the color
+t.setColor("blue");
+
+// turn right 45 degrees
+t.right(45);
+
+// turn left 30 degrees
+t.left(30);
+
+// make and arc with angle 32 and radius 40
+t.arc(32, 40);
+
+// set the pen size
+t.setSize(3);
+
+ // go to x 50 and y 200
+t.goto(50, 200);
+
+// set the angle to 90 degrees
+t.setAngle(90);
+
+// pick up the pen so you don't draw
+t.up();
+
+// put down the pen so you do draw
+t.down();
+
+// begin tracking points to fill shape
+t.startFill();
+
+// fill in shape
+t.endFill();
 
 ```
 
