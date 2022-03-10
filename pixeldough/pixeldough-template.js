@@ -46,6 +46,7 @@ let lastProgram = null;
 const imgput = document.getElementById("img");
 let img = new Image();
 const setImgSrc = src => {
+  console.log(src);
   img.onload = () => evaluate(lastProgram);
   img.src = src;
 }
@@ -113,9 +114,9 @@ export default function evaluate(program) {
   const pixels = new Uint8ClampedArray(w * h * 4);
   let wtr = 0;
 
-  for (let x = 0; x < w; x++)
-    for (let y = 0; y < h; y++) {
-      const [r, g, b, a = 255] = forEachPixel(y/w, x/h).map(x => x * 255);
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      const [r, g, b, a = 255] = forEachPixel(x/w, y/h).map(x => x * 255);
       pixels[wtr++] = r;
       pixels[wtr++] = g;
       pixels[wtr++] = b;
