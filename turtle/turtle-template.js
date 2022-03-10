@@ -124,13 +124,13 @@ class Turtle {
 
 
     this.location = { x, y };
-    this._fillArray.push(this.location);
+    if (this.drawing) this._fillArray.push(this.location);
     
     return this;
   }
 
   startFill() {
-    this._fillArray = [this.location];
+    this._fillArray = this.drawing ? [this.location] : [];
 
     return this;
   }
