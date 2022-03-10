@@ -91,24 +91,7 @@ const angleBetween = (a, b) => {
 const angleToPos = angle => [Math.cos(angle * (Math.PI/180)),
                              Math.sin(angle * (Math.PI/180))];
 
-// whole template is run on initialization
-// when code is sent this function is run
-export default function evaluate(program) {
-  if (program === null) return;
-  lastProgram = program;
-
-  const imgData = imgput.files.length ? getImageData(img) : undefined;
-  const sample = !imgData ? defaultTex : (x, y) => {
-    const { width: w, height: h } = img;
-    const realMod = (x, n) => ((x % n) + n) % n
-
-    const i = (Math.floor(realMod(y * h, h)) * w + Math.floor(realMod(x * w, w))) * 4;
-    return [...imgData.data.slice(i, i+4)].map(x => x / 255);
-  }
-
-  const helpers = { mix, distance, sample, angleBetween, angleToPos };
-  const { size: [w, h], forEachPixel } = new Function(...Object.keys(helpers), program)(...Object.values(helpers));
-
+const render = ({ size: [w, h], forEachPixel }) => {
   canvas.width = w, canvas.height = h;
 
   const pixels = new Uint8ClampedArray(w * h * 4);
@@ -124,4 +107,23 @@ export default function evaluate(program) {
     }
 
   ctx.putImageData(new ImageData(pixels, w, h), 0, 0);
+}
+
+// whole template is run on initialization
+// when code is sent this function is run
+export default function evaluate(program) {
+  if (program === null) return;
+  lastProgram = program;
+
+  const imgData = imgput.files.length ? getImageData(img) : undefined;
+  const sample = !imgData ? defaultTex : (x, y) => {
+    const { width: w, height: h } = img;
+    const realMod = (x, n) => ((x % n) + n) % n
+
+    const i = (Math.floor(realMod(y * h, h)) * w + Math.floor(realMod(x * w, w))) * 4;
+    return [...imgData.data.slice(i, i+4)].map(x => x / 255);
+  }
+
+  const helpers = { mix, render, distance, sample, angleBetween, angleToPos };
+  new Function(...Object.keys(helpers), program)(...Object.values(helpers));
 }
