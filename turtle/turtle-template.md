@@ -213,10 +213,12 @@ function rect(x, y, w, h) {
 }
 
 for (let i = 0; i < 252; i += 1) {
+  t.up();
   t.startFill();
   t.setColor(`hsla(${360/10*i}, ${100}%, ${73}%, ${63}%)`);
   rect(i*2 + -73, Math.sin(i/10)*77+157, -57 , 3);
   t.endFill();
+  t.down();
 }
 ```
 
