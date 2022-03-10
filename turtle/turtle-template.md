@@ -9,13 +9,14 @@ You can also change the `setColor("color")` and the `setSize(number)`.
 We have only a few functions we need to learn and they are all listed below.
 
 ```
-const width = 300;
-const height = 300;
+// set the canvas size
+setCanvasSize(300, 300);
 
-setCanvasSize(width, height); // set the canvas size
-fillScreen("white"); // set the background
+// set the background
+fillScreen("white");
 
-const t = createTurtle(150, 150); // create a drawing turtle with starting x and y
+// create a drawing turtle with starting x and y
+const t = createTurtle(150, 150);
 
 // go forward and leave a trail
 t.forward(30);
