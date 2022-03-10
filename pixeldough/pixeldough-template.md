@@ -6,13 +6,13 @@ By running a bit of code on each pixel in an image, you can make a lot of cool a
 <img width="300" src="https://cloud-i3n4o8a50-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(x, y);
       return [r, g, b, a];
     }
-}
+})
 ```
 
 ## flip!
@@ -20,13 +20,13 @@ return {
 <img width="300" src="https://cloud-dp3v55kn2-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(y, x);
       return [r, g, b, a];
     }
-}
+})
 ```
 
 ## darken
@@ -34,13 +34,13 @@ return {
 <img width="300" src="https://cloud-8jfg4stx4-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(x, y);
       return [r - 0.3, g - 0.3, b - 0.3, a];
     }
-}
+})
 ```
 
 ## invert
@@ -48,13 +48,13 @@ return {
 <img width="300" src="https://cloud-r7hx0ta6p-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(x, y);
       return [1 - r, 1 - g, 1 - b, a];
     }
-}
+})
 ```
 
 ## add to color based on position in image
@@ -62,13 +62,13 @@ return {
 <img width="300" src="https://cloud-mn6pntdgf-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(x, y);
       return [x+r, y+g, b, a];
     }
-}
+})
 ```
 
 ## mix two colors
@@ -79,12 +79,12 @@ return {
 const INDIGO = [0.3, 0.0, 0.6, 1];
 const PEACH  = [1.0, 0.5, 0.4, 1];
 
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       return mix(PEACH, INDIGO, 0.5)
     }
-}
+})
 ```
 
 ## mix two colors based on position in image
@@ -95,12 +95,12 @@ return {
 const INDIGO = [0.3, 0.0, 0.6, 1];
 const PEACH  = [1.0, 0.5, 0.4, 1];
 
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       return mix(PEACH, INDIGO, x)
     }
-}
+})
 ```
 
 ## mix in an image!
@@ -111,12 +111,12 @@ return {
 const INDIGO = [0.3, 0.0, 0.6, 1];
 const PEACH  = [1.0, 0.5, 0.4, 1];
 
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       return mix(sample(x, y), INDIGO, x)
     }
-}
+})
 ```
 
 ## image grid!
@@ -126,13 +126,13 @@ return {
 can you change the size of the grid based on position in image?
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const [r, g, b, a] = sample(x * 2, y * 2);
       return [r, g, b, a];
     }
-}
+})
 ```
 
 ## becoming well rounded!
@@ -140,7 +140,7 @@ return {
 <img width="300" src="https://cloud-p91oye7o3-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const dist = distance([x, y], [0.5, 0.5]);
@@ -149,7 +149,7 @@ return {
       else
         return sample(x, y);
     }
-}
+})
 ```
 
 ## mixing based on distance from center
@@ -158,13 +158,13 @@ return {
 
 ```
 const BLACK = [0, 0, 0, 1];
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const dist = distance([x, y], [0.5, 0.5]);
       return mix(sample(x, y), BLACK, dist);
     }
-}
+})
 ```
 
 ## waves of red!
@@ -172,13 +172,13 @@ return {
 <img width="300" src="https://cloud-isa96zqtv-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const r = x % (1/4) * 4;
       return [r, 0, 0, 1];
     }
-}
+})
 ```
 
 ## sampling waves!
@@ -188,13 +188,13 @@ return {
 can you make the waves go up and down as well?
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const r = x % (1/4) * 4;
       return mix(sample(x, y), [0, 0, 0, 1], r);
     }
-}
+})
 ```
 
 ## laser pulses!
@@ -202,13 +202,13 @@ return {
 <img width="300" src="https://cloud-isa96zqtv-hack-club-bot.vercel.app/1image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const r = Math.sin(x * Math.PI * 5);
       return [r, 0, 0, 1];
     }
-}
+})
 ```
 
 ## circular pulses!
@@ -216,14 +216,14 @@ return {
 <img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/2image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const dist = distance([x, y], [0.5, 0.5]);
       const r = Math.sin(dist * Math.PI * 11);
       return [r, 0, 0, 1];
     }
-}
+})
 ```
 
 ## using a circular pulse to mix an image with a flipped version of itself
@@ -231,7 +231,7 @@ return {
 <img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/1image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const dist = distance([x, y], [0.5, 0.5]);
@@ -243,7 +243,7 @@ return {
 
       return mix(sample(y, x), sample(x, y), r)
     }
-}
+})
 ```
 
 ## diamonds (XOR fractal)
@@ -251,7 +251,7 @@ return {
 <img width="300" src="https://cloud-h3mki7fm9-hack-club-bot.vercel.app/3image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const rx = x * 64;
@@ -259,7 +259,7 @@ return {
       const r = (rx ^ ry) / 64;
       return [r, 0, 0, 1];
     }
-}
+})
 ```
 
 ## using diamonds to mix in an image
@@ -268,7 +268,7 @@ return {
 
 ```
 const BLACK = [0, 0, 0, 1];
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const rx = x * 64;
@@ -276,7 +276,7 @@ return {
       const r = (rx ^ ry) / 64;
       return mix(BLACK, sample(x, y), r);
     }
-}
+})
 ```
 
 ## mix two colors based on the angle between a pixel and the center
@@ -287,7 +287,7 @@ return {
 const INDIGO = [0.3, 0.0, 0.6, 1];
 const PEACH  = [1.0, 0.5, 0.4, 1];
 
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       let r = angleBetween([x, y], [0.5, 0.5]);
@@ -298,7 +298,7 @@ return {
 
       return mix(INDIGO, PEACH, r);
     }
-}
+})
 ```
 
 ## turn angles back into positions on the screen
@@ -306,14 +306,14 @@ return {
 <img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/1image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       const angle = angleBetween([x, y], [0.5, 0.5]);
       const [nx, ny] = angleToPos(angle);
       return sample(nx, ny);
     }
-}
+})
 ```
 
 ## change the angles before you turn them back into positions!
@@ -321,7 +321,7 @@ return {
 <img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/3image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       let angle = angleBetween([x, y], [0.5, 0.5]);
@@ -333,7 +333,7 @@ return {
       const [nx, ny] = angleToPos(angle);
       return sample(nx, ny);
     }
-}
+})
 ```
 
 ## change the angle based on its distance from the center!
@@ -341,7 +341,7 @@ return {
 <img width="300" src="https://cloud-108r5firz-hack-club-bot.vercel.app/2image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       let angle = angleBetween([x, y], [0.5, 0.5]);
@@ -352,7 +352,7 @@ return {
       const [nx, ny] = angleToPos(angle);
       return sample(nx, ny);
     }
-}
+})
 ```
 
 ## look for a pixel the same distance from the center as this one, just with a different angle
@@ -360,7 +360,7 @@ return {
 <img width="300" src="https://cloud-qs97l0wq2-hack-club-bot.vercel.app/0image.png"></img>
 
 ```
-return {
+render({
     size: [300, 300],
     forEachPixel(x, y) {
       let angle = angleBetween([x, y], [0.5, 0.5]);
@@ -376,7 +376,7 @@ return {
       const [nx, ny] = angleToPos(angle);
       return sample(nx * dist, ny * dist);
     }
-}
+})
 ```
 
 
