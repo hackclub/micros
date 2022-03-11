@@ -1,6 +1,60 @@
 # Pixeldough
 By running a bit of code on each pixel in an image, you can make a lot of cool art!
 
+
+## The API
+
+```
+// simply renders the image
+forEachPixel(x, y) {
+    return sample(x, y);
+}
+```
+
+
+## (x, y)
+
+(0, 0) is the top left
+
+(1, 1) is the bottom right
+
+
+## sample(x, y)
+
+coordinates greater than 1 or less than 0 will "wrap around" such that (1.5, -0.2) is equivalent to (0.5, 0.2)
+
+
+## red, green, blue, alpha
+
+an image that is completely filled with the most intense red:
+```
+    return [1, 0, 0, 1];
+```
+the most intense green:
+```
+    return [0, 1, 0, 1];
+```
+the most intense blue:
+```
+    return [0, 0, 1, 1];
+```
+
+if the last coordinate is 0, your image will be completely transparent.
+
+black is the absence of colors:
+```
+    return [0, 0, 0, 1];
+```
+
+white is the presence of all colors:
+```
+    return [1, 1, 1, 1];
+```
+
+## const [r, g, b, a] = sample(x, y)
+sample returns an array of color values, just as your forEachPixel function does.
+
+
 ## just an image
 
 <img width="300" src="https://cloud-i3n4o8a50-hack-club-bot.vercel.app/0image.png"></img>

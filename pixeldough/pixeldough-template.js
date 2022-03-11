@@ -91,40 +91,33 @@ const angleBetween = (a, b) => {
 const angleToPos = angle => [Math.cos(angle * (Math.PI/180)),
                              Math.sin(angle * (Math.PI/180))];
 
-let pixelbufs = [];
-let renderInterval;
-
-const render = ({ size: [w, h], frames=1, fps, forEachPixel }) => {
+let renderloop;
+const render = ({ size: [w, h], forEachPixel }) => {
   canvas.width = w, canvas.height = h;
 
-  pixelbufs = Array.from(
-    { length: frames },
-    () => new Uint8ClampedArray(w * h * 4)
-  );
+  if (renderloop != undefined)
+    cancelAnimationFrame(renderloop);
 
-  for (const [i, buf] of Object.entries(pixelbufs)) {
+  let first;
+  (function frame(ts) {
+    first = first || ts;
+    const secs = (ts - first) / 1000;
+
+    const pixels = new Uint8ClampedArray(w * h * 4);
     let wtr = 0;
 
     for (let y = 0; y < h; y++)
       for (let x = 0; x < w; x++) {
-        const [r, g, b, a = 255] = forEachPixel(x/w, y/h, i/frames)
-          .map(x => x * 255);
-        buf[wtr++] = r;
-        buf[wtr++] = g;
-        buf[wtr++] = b;
-        buf[wtr++] = a;
+        const [r, g, b, a = 255] = forEachPixel(x/w, y/h, secs).map(x => x * 255);
+        pixels[wtr++] = r;
+        pixels[wtr++] = g;
+        pixels[wtr++] = b;
+        pixels[wtr++] = a;
       }
-  }
 
-  if (renderInterval != undefined)
-    clearInterval(renderInterval);
-
-  let f_i = 0;
-  renderInterval = setInterval(() => {
-    const pixels = pixelbufs[f_i % frames];
     ctx.putImageData(new ImageData(pixels, w, h), 0, 0);
-    f_i++;
-  }, 1000/fps);
+    renderloop = requestAnimationFrame(frame);
+  })();
 }
 
 // whole template is run on initialization
