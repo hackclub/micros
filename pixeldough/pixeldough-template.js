@@ -91,22 +91,33 @@ const angleBetween = (a, b) => {
 const angleToPos = angle => [Math.cos(angle * (Math.PI/180)),
                              Math.sin(angle * (Math.PI/180))];
 
+let renderloop;
 const render = ({ size: [w, h], forEachPixel }) => {
   canvas.width = w, canvas.height = h;
 
-  const pixels = new Uint8ClampedArray(w * h * 4);
-  let wtr = 0;
+  if (renderloop != undefined)
+    cancelAnimationFrame(renderloop);
 
-  for (let y = 0; y < h; y++)
-    for (let x = 0; x < w; x++) {
-      const [r, g, b, a = 255] = forEachPixel(x/w, y/h).map(x => x * 255);
-      pixels[wtr++] = r;
-      pixels[wtr++] = g;
-      pixels[wtr++] = b;
-      pixels[wtr++] = a;
-    }
+  let first;
+  (function frame(ts) {
+    first = first || ts;
+    const secs = (ts - first) / 1000;
 
-  ctx.putImageData(new ImageData(pixels, w, h), 0, 0);
+    const pixels = new Uint8ClampedArray(w * h * 4);
+    let wtr = 0;
+
+    for (let y = 0; y < h; y++)
+      for (let x = 0; x < w; x++) {
+        const [r, g, b, a = 255] = forEachPixel(x/w, y/h, secs).map(x => x * 255);
+        pixels[wtr++] = r;
+        pixels[wtr++] = g;
+        pixels[wtr++] = b;
+        pixels[wtr++] = a;
+      }
+
+    ctx.putImageData(new ImageData(pixels, w, h), 0, 0);
+    renderloop = requestAnimationFrame(frame);
+  })();
 }
 
 // whole template is run on initialization

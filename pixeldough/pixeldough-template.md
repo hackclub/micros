@@ -1,6 +1,60 @@
 # Pixeldough
 By running a bit of code on each pixel in an image, you can make a lot of cool art!
 
+
+## The API
+
+```
+// simply renders the image
+forEachPixel(x, y) {
+    return sample(x, y);
+}
+```
+
+
+## (x, y)
+
+(0, 0) is the top left
+
+(1, 1) is the bottom right
+
+
+## sample(x, y)
+
+coordinates greater than 1 or less than 0 will "wrap around" such that (1.5, -0.2) is equivalent to (0.5, 0.2)
+
+
+## red, green, blue, alpha
+
+an image that is completely filled with the most intense red:
+```
+    return [1, 0, 0, 1];
+```
+the most intense green:
+```
+    return [0, 1, 0, 1];
+```
+the most intense blue:
+```
+    return [0, 0, 1, 1];
+```
+
+if the last coordinate is 0, your image will be completely transparent.
+
+black is the absence of colors:
+```
+    return [0, 0, 0, 1];
+```
+
+white is the presence of all colors:
+```
+    return [1, 1, 1, 1];
+```
+
+## const [r, g, b, a] = sample(x, y)
+sample returns an array of color values, just as your forEachPixel function does.
+
+
 ## just an image
 
 <img width="300" src="https://cloud-i3n4o8a50-hack-club-bot.vercel.app/0image.png"></img>
@@ -380,52 +434,4 @@ render({
 ```
 
 
-
-
-### MAP
-[swap](https://microworlds.hackclub.dev/?id=8d404b5339e1e61b9dd2817e2041132d)
-
-[darken](https://microworlds.hackclub.dev/?id=770e1f671e151d436520931e1b5981e9)
-
-[invert](https://microworlds.hackclub.dev/?id=91ad1de521fef072aa474744bb099499)
-
-### DOMAIN
-[scale](https://microworlds.hackclub.dev/?id=c449fca15de37f5e1386acb39167b4e7)
-
-[xy scale](https://microworlds.hackclub.dev/?id=fea10d868398eac135c264f61efacf31)
-
-[lerp](https://microworlds.hackclub.dev/?id=07a983cc0f541d416cacc6f5bbc72c9e)
-
-[xy lerp](https://microworlds.hackclub.dev/?id=4550c2d7dedb6b9a667f022693453f4f)
-
-[radial gradient](https://microworlds.hackclub.dev/?id=865577efb766cf824f99e39fe0085ae8)
-
-### SAMPLE
-[radial sample](https://microworlds.hackclub.dev/?id=c697e2cc10b1aba51328dd148582ceed)
-flip
-
-swirl
-
-fracture
-
-### SDF
-radial
-
-circle
-
-onion
-
-### NOISE
-grid
-
-hex
-
-simplex
-
-## Useful Snippets
-
-## Miscellaneous
-
 [GitHub of this document.](https://github.com/hackclub/microworld-templates/blob/main/turtle/turtle-template.md)
-
-
