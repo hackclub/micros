@@ -1,0 +1,6 @@
+{
+  "name": "websketch",
+  "documentation": "http://localhost:8000/websketch-template.md",
+  "template": "http://localhost:8000/websketch-template.js",
+  "programAddress": "http://localhost:8000/example-websketch-program.js"
+}
