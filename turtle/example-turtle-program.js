@@ -1,3 +1,8 @@
+/*
+  Hit the "docs" button to get started learning about
+  drawing with Turtles!
+*/
+
 const w = 509;
 const h = 579;
 

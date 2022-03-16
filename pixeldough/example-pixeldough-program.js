@@ -1,3 +1,8 @@
+/*
+  Hit the "docs" button to get started
+  writing generative pixel art!
+*/
+
 render({
     size: [300, 300],
     forEachPixel(x, y) {
