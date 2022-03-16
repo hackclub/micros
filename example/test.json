@@ -1,6 +1,6 @@
 {
   "name": "example-test",
-  "documentation": "http://127.0.0.1:8080/example/example-template.md",
-  "template": "http://127.0.0.1:8080/example/example-template.js",
-  "programAddress": "http://127.0.0.1:8080/example/example-program.js"
+  "documentation": "http://127.0.0.1:8080/example/docs.md",
+  "template": "http://127.0.0.1:8080/example/engine.js",
+  "programAddress": "http://127.0.0.1:8080/example/default.js"
 }
