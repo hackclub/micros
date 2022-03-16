@@ -13,9 +13,9 @@ new Microworld files):
 ```
 {
   "name": "example",
-  "documentation": "https://micros.hackclub.dev/example/example-template.md",
-  "template": "https://micros.hackclub.dev/example/example-template.js",
-  "programAddress": "https://micros.hackclub.dev/example/example-program.js"
+  "documentation": "https://micros.hackclub.dev/example/docs.md",
+  "template": "https://micros.hackclub.dev/example/engine.js",
+  "programAddress": "https://micros.hackclub.dev/example/default.js"
 }
 ```
 
