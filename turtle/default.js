@@ -1,5 +1,5 @@
 /*
-  Hit the "docs" button to get started learning about
+  Hit the "docs" button to get started 
   drawing with Turtles!
 */
 

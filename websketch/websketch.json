@@ -1,6 +1,6 @@
 {
   "name": "websketch-default",
-  "documentation": "https://micros.hackclub.dev/turtle/docs.md",
-  "template": "https://micros.hackclub.dev/turtle/engine.js",
-  "programAddress": "https://micros.hackclub.dev/turtle/default.js"
+  "documentation": "https://micros.hackclub.dev/websketch/docs.md",
+  "template": "https://micros.hackclub.dev/websketch/engine.js",
+  "programAddress": "https://micros.hackclub.dev/websketch/default.js"
 }
